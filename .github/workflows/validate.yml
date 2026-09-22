@@ -2,9 +2,16 @@ name: Validate manifest
 
 on:
   push:
-    branches: [main]
   pull_request:
+  schedule:
+    # The manifest points at live release assets, so check it periodically too:
+    # an asset re-uploaded under the same name changes its digest and every client
+    # that already verified the old one would start failing.
+    - cron: "30 3 * * 1"
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
@@ -14,12 +21,35 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Validate manifest.json
+        run: python3 scripts/validate_manifest.py manifest.json
+
       - name: Validate manifest.example.json
         run: python3 scripts/validate_manifest.py manifest.example.json
-      - name: Validate manifest.json (when present)
+
+      - name: Manifest must match the published release assets
+        run: python3 scripts/build_manifest.py --check
+
+      - name: Every manifest entry must keep the documented naming scheme
         run: |
-          if [ -f manifest.json ]; then
-            python3 scripts/validate_manifest.py manifest.json
-          else
-            echo "manifest.json not published yet - skipping"
-          fi
+          python3 - <<'PY'
+          import json, re, sys
+          manifest = json.load(open("manifest.json", encoding="utf-8"))
+          pattern = re.compile(r"^MeetingSTT-model-.+-v\d[\w.\-]*(\.part\d+)?\.zip$")
+          problems = []
+          for model in manifest["models"]:
+              for version in model["versions"]:
+                  for asset in version["assets"]:
+                      name, url = asset["filename"], asset["url"]
+                      if not pattern.match(name):
+                          problems.append(f"{name}: filename does not follow MeetingSTT-model-<variant>-<tag>.zip")
+                      if not url.endswith(name):
+                          problems.append(f"{name}: url does not point at this file")
+                      if not url.startswith("https://github.com/Eric-YHS/MeetingSTT-models/releases/download/"):
+                          problems.append(f"{name}: asset should be served from this repository's releases")
+          if problems:
+              print("\n".join(problems))
+              sys.exit(1)
+          print("ok  naming and download URLs are consistent")
+          PY

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "id": "large-v3",
+      "display_name": "Whisper large-v3",
+      "task": "asr",
+      "language": [
+        "zh",
+        "en"
+      ],
+      "latest": "v1.0.0",
+      "versions": [
+        {
+          "version": "v1.0.0",
+          "assets": [
+            {
+              "filename": "MeetingSTT-model-large-v3-v1.0.0.part01.zip",
+              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/v1.0.0/MeetingSTT-model-large-v3-v1.0.0.part01.zip",
+              "sha256": "5a171e04bac07a76c9028a90ecbdb57450d1e0ba4754f6323fdfeae194b28017",
+              "size_bytes": 1663311427,
+              "unpack_dir": "MeetingSTT-model-large-v3"
+            },
+            {
+              "filename": "MeetingSTT-model-large-v3-v1.0.0.part02.zip",
+              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/v1.0.0/MeetingSTT-model-large-v3-v1.0.0.part02.zip",
+              "sha256": "f7da05a23e0dfbd0271ab8b17acac75c6410ea8338fbf08a82fbda369d280e1d",
+              "size_bytes": 1187926362,
+              "unpack_dir": "MeetingSTT-model-large-v3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medium.en",
+      "display_name": "Whisper medium.en",
+      "task": "asr",
+      "language": [
+        "en"
+      ],
+      "latest": "v1.0.0",
+      "versions": [
+        {
+          "version": "v1.0.0",
+          "assets": [
+            {
+              "filename": "MeetingSTT-model-medium.en-v1.0.0.zip",
+              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/v1.0.0/MeetingSTT-model-medium.en-v1.0.0.zip",
+              "sha256": "411710cf968c27ed663dd1d94a23deccee2c2bb4aacc1370069ce341da70bef7",
+              "size_bytes": 1409665671,
+              "unpack_dir": "MeetingSTT-model-medium.en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "small",
+      "display_name": "Whisper small",
+      "task": "asr",
+      "language": [
+        "zh",
+        "en"
+      ],
+      "latest": "v1.0.0",
+      "versions": [
+        {
+          "version": "v1.0.0",
+          "assets": [
+            {
+              "filename": "MeetingSTT-model-small-v1.0.0.zip",
+              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/v1.0.0/MeetingSTT-model-small-v1.0.0.zip",
+              "sha256": "0cbdd23d67a3914778a76f3e72b814b530b73feacafc85f45aab1a820bc77a0d",
+              "size_bytes": 446457149,
+              "unpack_dir": "MeetingSTT-model-small"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "turbo",
+      "display_name": "Whisper large-v3-turbo",
+      "task": "asr",
+      "language": [
+        "zh",
+        "en"
+      ],
+      "latest": "v1.0.0",
+      "versions": [
+        {
+          "version": "v1.0.0",
+          "assets": [
+            {
+              "filename": "MeetingSTT-model-turbo-v1.0.0.zip",
+              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/v1.0.0/MeetingSTT-model-turbo-v1.0.0.zip",
+              "sha256": "6f233c59162f65eed23befe8d02d9cfdd08b629030b8b58c4254e1a3b7ed3253",
+              "size_bytes": 1492334386,
+              "unpack_dir": "MeetingSTT-model-turbo"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

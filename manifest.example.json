@@ -2,22 +2,51 @@
   "schema_version": 1,
   "models": [
     {
-      "id": "sensevoice-small",
-      "display_name": "SenseVoice Small",
+      "id": "small",
+      "display_name": "Whisper small",
       "task": "asr",
       "language": ["zh", "en"],
-      "latest": "2026.04",
+      "latest": "v1.0.0",
       "versions": [
         {
-          "version": "2026.04",
-          "notes": "Initial public export used by MeetingSTT local downloads.",
+          "version": "v1.0.0",
+          "notes": "Single-package release: one zip, verified by sha256 + size_bytes.",
           "assets": [
             {
-              "filename": "sensevoice-small-2026.04.zip",
-              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/sensevoice-small-2026.04/sensevoice-small-2026.04.zip",
+              "filename": "MeetingSTT-model-small-v1.0.0.zip",
+              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/v1.0.0/MeetingSTT-model-small-v1.0.0.zip",
               "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-              "size_bytes": 248631290,
-              "unpack_dir": "sensevoice-small"
+              "size_bytes": 446457149,
+              "unpack_dir": "MeetingSTT-model-small"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "large-v3",
+      "display_name": "Whisper large-v3",
+      "task": "asr",
+      "language": ["zh", "en"],
+      "latest": "v1.0.0",
+      "versions": [
+        {
+          "version": "v1.0.0",
+          "notes": "Split package: download the assets in the listed order, concatenate them and unzip the result.",
+          "assets": [
+            {
+              "filename": "MeetingSTT-model-large-v3-v1.0.0.part01.zip",
+              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/v1.0.0/MeetingSTT-model-large-v3-v1.0.0.part01.zip",
+              "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+              "size_bytes": 1663311427,
+              "unpack_dir": "MeetingSTT-model-large-v3"
+            },
+            {
+              "filename": "MeetingSTT-model-large-v3-v1.0.0.part02.zip",
+              "url": "https://github.com/Eric-YHS/MeetingSTT-models/releases/download/v1.0.0/MeetingSTT-model-large-v3-v1.0.0.part02.zip",
+              "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "size_bytes": 1187926362,
+              "unpack_dir": "MeetingSTT-model-large-v3"
             }
           ]
         }
