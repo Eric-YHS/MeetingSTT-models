@@ -1,0 +1,19 @@
+# Large model artefacts are published as GitHub Release assets, not committed.
+models/
+*.zip
+*.tar.gz
+*.pt
+*.onnx
+*.bin
+*.ckpt
+*.wav
+
+# Local scratch
+.cache/
+tmp/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
